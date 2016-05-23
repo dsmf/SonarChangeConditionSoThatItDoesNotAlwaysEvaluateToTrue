@@ -14,7 +14,10 @@ public class PartComparator implements Comparator<Part>, Serializable {
          return 0;
       } else if (p1 != null && p2 == null) {
          return 1;
-      } else if (p1 == null && p2 != null) { // --> Change this condition so that it does not always evaluate to "true"
+      } else if (p1 == null && p2 != null) {
+         // !!! Sonar warning on line above: Change this condition so that it does not always evaluate to "true".
+         // This is correct. p2 != can never become false at this point because it would mean that the first if branch
+         // had been taken. So p2 != null is superfluous here.
          return -1;
       } else {
 
@@ -22,9 +25,12 @@ public class PartComparator implements Comparator<Part>, Serializable {
          if (p1.getRecord() == null && p2.getRecord() == null) {
             return 0;
          } else if (p1.getRecord() != null && p2.getRecord() == null) {
+            // !!! Here we have the same situation, but it is not recognized by Sonar due to the usage of a getter
+            // method. Second part "p2.getRecord() != null" can be removed.
             return 1;
          } else if (p1.getRecord() == null && p2.getRecord() != null) {
             return -1;
+            // !!! and this else if can be replace by simple else
          } else if (p1.getRecord() != null && p2.getRecord() != null) {
 
             // type checks
