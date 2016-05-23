@@ -14,7 +14,7 @@ public class PartComparator implements Comparator<Part>, Serializable {
          return 0;
       } else if (p1 != null && p2 == null) {
          return 1;
-      } else if (p1 == null && p2 != null) {
+      } else if (p1 == null && p2 != null) { // --> Change this condition so that it does not always evaluate to "true"
          return -1;
       } else {
 
