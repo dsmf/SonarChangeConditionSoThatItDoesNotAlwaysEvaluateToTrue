@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
-extraProperties=
-lastAnalysisDate=1458337448521
-projectKey=de.zeppelin.etlisten\:etlisten-tool-processor
+extraProperties=sonar.language\=java
+lastAnalysisDate=1464009572933
+projectKey=de.doubleslash.bugreports.sonar\:condition-always-true-bug
 serverUrl=http\://fdhsonar01\:9000
 version=2
